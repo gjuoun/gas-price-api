@@ -13,7 +13,7 @@ import _ from "lodash";
 
 const app = express();
 
-app.get("/", async (req, res) => {
+app.get("/station", async (req, res) => {
   if (!req.query.station_id) {
     return res.send({
       success: false,
