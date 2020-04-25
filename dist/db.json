@@ -1,0 +1,507 @@
+{
+  "prices": [
+    {
+      "station_id": 72164,
+      "fuels": [
+        {
+          "id": 1,
+          "fuelType": "Regular",
+          "stationId": 72164,
+          "prices": [
+            {
+              "isCash": true,
+              "price": 61.9,
+              "reportedBy": "Brucevanf",
+              "postedTime": "2020-04-25T11:40:15.338Z"
+            },
+            {
+              "isCash": false,
+              "price": 0
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "fuelType": "Premium",
+          "stationId": 72164,
+          "prices": [
+            {
+              "isCash": true,
+              "price": 0
+            },
+            {
+              "isCash": false,
+              "price": 0
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "fuelType": "Diesel",
+          "stationId": 72164,
+          "prices": [
+            {
+              "isCash": true,
+              "price": 0
+            },
+            {
+              "isCash": false,
+              "price": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "station_id": 12198,
+      "fuels": [
+        {
+          "id": 1,
+          "fuelType": "Regular",
+          "stationId": 12198,
+          "prices": [
+            {
+              "isCash": true,
+              "price": 63.4,
+              "reportedBy": "Brucevanf",
+              "postedTime": "2020-04-25T11:40:15.057Z"
+            },
+            {
+              "isCash": false,
+              "price": 0
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "fuelType": "Midgrade",
+          "stationId": 12198,
+          "prices": [
+            {
+              "isCash": true,
+              "price": 0
+            },
+            {
+              "isCash": false,
+              "price": 0
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "fuelType": "Premium",
+          "stationId": 12198,
+          "prices": [
+            {
+              "isCash": true,
+              "price": 0
+            },
+            {
+              "isCash": false,
+              "price": 0
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "fuelType": "Diesel",
+          "stationId": 12198,
+          "prices": [
+            {
+              "isCash": true,
+              "price": 0
+            },
+            {
+              "isCash": false,
+              "price": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "station_id": 1910,
+      "fuels": [
+        {
+          "id": 1,
+          "fuelType": "Regular",
+          "stationId": 1910,
+          "prices": [
+            {
+              "isCash": false,
+              "price": 66.9,
+              "reportedBy": "Brian Smith",
+              "postedTime": "2020-04-25T10:42:51.461Z"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "fuelType": "Midgrade",
+          "stationId": 1910,
+          "prices": [
+            {
+              "isCash": false,
+              "price": 72.5,
+              "reportedBy": "Himkei",
+              "postedTime": "2020-04-24T17:32:01.343Z"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "fuelType": "Premium",
+          "stationId": 1910,
+          "prices": [
+            {
+              "isCash": false,
+              "price": 76,
+              "reportedBy": "Himkei",
+              "postedTime": "2020-04-24T17:32:01.359Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "station_id": 137986,
+      "fuels": [
+        {
+          "id": 1,
+          "fuelType": "Regular",
+          "stationId": 137986,
+          "prices": [
+            {
+              "isCash": false,
+              "price": 66.9,
+              "reportedBy": "Brian Smith",
+              "postedTime": "2020-04-25T10:42:51.225Z"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "fuelType": "Midgrade",
+          "stationId": 137986,
+          "prices": [
+            {
+              "isCash": false,
+              "price": 0
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "fuelType": "Premium",
+          "stationId": 137986,
+          "prices": [
+            {
+              "isCash": false,
+              "price": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "station_id": 8292,
+      "fuels": [
+        {
+          "id": 1,
+          "fuelType": "Regular",
+          "stationId": 8292,
+          "prices": [
+            {
+              "isCash": false,
+              "price": 66.9,
+              "reportedBy": "Brian Smith",
+              "postedTime": "2020-04-25T10:42:50.991Z"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "fuelType": "Midgrade",
+          "stationId": 8292,
+          "prices": [
+            {
+              "isCash": false,
+              "price": 0
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "fuelType": "Premium",
+          "stationId": 8292,
+          "prices": [
+            {
+              "isCash": false,
+              "price": 0
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "fuelType": "Diesel",
+          "stationId": 8292,
+          "prices": [
+            {
+              "isCash": false,
+              "price": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "station_id": 1704,
+      "fuels": [
+        {
+          "id": 1,
+          "fuelType": "Regular",
+          "stationId": 1704,
+          "prices": [
+            {
+              "isCash": false,
+              "price": 66.9,
+              "reportedBy": "Brian Smith",
+              "postedTime": "2020-04-25T10:42:50.803Z"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "fuelType": "Midgrade",
+          "stationId": 1704,
+          "prices": [
+            {
+              "isCash": false,
+              "price": 0
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "fuelType": "Premium",
+          "stationId": 1704,
+          "prices": [
+            {
+              "isCash": false,
+              "price": 0
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "fuelType": "Diesel",
+          "stationId": 1704,
+          "prices": [
+            {
+              "isCash": false,
+              "price": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "station_id": 87861,
+      "fuels": [
+        {
+          "id": 1,
+          "fuelType": "Regular",
+          "stationId": 87861,
+          "prices": [
+            {
+              "isCash": false,
+              "price": 66.9,
+              "reportedBy": "CoryJaymz",
+              "postedTime": "2020-04-24T19:49:08.517Z"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "fuelType": "Midgrade",
+          "stationId": 87861,
+          "prices": [
+            {
+              "isCash": false,
+              "price": 72.5,
+              "reportedBy": "CoryJaymz",
+              "postedTime": "2020-04-24T19:49:08.532Z"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "fuelType": "Premium",
+          "stationId": 87861,
+          "prices": [
+            {
+              "isCash": false,
+              "price": 76,
+              "reportedBy": "CoryJaymz",
+              "postedTime": "2020-04-24T19:49:08.548Z"
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "fuelType": "Diesel",
+          "stationId": 87861,
+          "prices": [
+            {
+              "isCash": false,
+              "price": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "station_id": 24141,
+      "fuels": [
+        {
+          "id": 1,
+          "fuelType": "Regular",
+          "stationId": 24141,
+          "prices": [
+            {
+              "isCash": false,
+              "price": 66.9,
+              "reportedBy": "rotc5027",
+              "postedTime": "2020-04-24T14:40:30.583Z"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "fuelType": "Midgrade",
+          "stationId": 24141,
+          "prices": [
+            {
+              "isCash": false,
+              "price": 0
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "fuelType": "Premium",
+          "stationId": 24141,
+          "prices": [
+            {
+              "isCash": false,
+              "price": 0
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "fuelType": "Diesel",
+          "stationId": 24141,
+          "prices": [
+            {
+              "isCash": false,
+              "price": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "station_id": 189618,
+      "fuels": [
+        {
+          "id": 1,
+          "fuelType": "Regular",
+          "stationId": 189618,
+          "prices": [
+            {
+              "isCash": false,
+              "price": 66.9,
+              "reportedBy": "rotc5027",
+              "postedTime": "2020-04-24T14:40:27.057Z"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "fuelType": "Midgrade",
+          "stationId": 189618,
+          "prices": [
+            {
+              "isCash": false,
+              "price": 0
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "fuelType": "Premium",
+          "stationId": 189618,
+          "prices": [
+            {
+              "isCash": false,
+              "price": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "station_id": 12197,
+      "fuels": [
+        {
+          "id": 1,
+          "fuelType": "Regular",
+          "stationId": 12197,
+          "prices": [
+            {
+              "isCash": false,
+              "price": 66.9,
+              "reportedBy": "rotc5027",
+              "postedTime": "2020-04-24T14:40:19.359Z"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "fuelType": "Midgrade",
+          "stationId": 12197,
+          "prices": [
+            {
+              "isCash": false,
+              "price": 0
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "fuelType": "Premium",
+          "stationId": 12197,
+          "prices": [
+            {
+              "isCash": false,
+              "price": 0
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "fuelType": "Diesel",
+          "stationId": 12197,
+          "prices": [
+            {
+              "isCash": false,
+              "price": 0
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "lastFetchAt": 1587842323421
+}
