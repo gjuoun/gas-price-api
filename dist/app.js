@@ -19,7 +19,7 @@ if (process.env.NODE_ENV !== "production") {
 const express_1 = __importDefault(require("express"));
 const gasPrices_1 = require("./gasPrices");
 const app = express_1.default();
-app.get("/", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+app.get("/station", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     if (!req.query.station_id) {
         return res.send({
             success: false,

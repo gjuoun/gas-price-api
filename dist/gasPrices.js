@@ -18,7 +18,7 @@ const lodash_1 = __importDefault(require("lodash"));
 const lowdb_1 = __importDefault(require("lowdb"));
 const FileSync_1 = __importDefault(require("lowdb/adapters/FileSync"));
 const path_1 = __importDefault(require("path"));
-const adapter = new FileSync_1.default(path_1.default.join(__dirname, "db.json"));
+const adapter = new FileSync_1.default(path_1.default.join(__dirname, "../db.json"));
 exports.db = lowdb_1.default(adapter);
 // const gasBuddyUrlExample = "https://www.gasbuddy.com/assets-v2/api/stations/16905/fuels"
 const gasBuddyAPIBaseUrl = "https://www.gasbuddy.com/assets-v2/api/stations/";
@@ -80,7 +80,7 @@ function updateLatestPrices() {
 exports.updateLatestPrices = updateLatestPrices;
 function getAll() {
     try {
-        return exports.db.get("rate").value();
+        return exports.db.get("prices").value();
     }
     catch (e) {
         console.log("Cannot get rate from DB");

@@ -5,7 +5,7 @@ import lowdb from "lowdb";
 import FileSync from "lowdb/adapters/FileSync";
 import path from "path";
 
-const adapter = new FileSync(path.join(__dirname, "db.json"));
+const adapter = new FileSync(path.join(__dirname, "../db.json"));
 export const db = lowdb(adapter);
 
 // const gasBuddyUrlExample = "https://www.gasbuddy.com/assets-v2/api/stations/16905/fuels"
