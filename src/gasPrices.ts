@@ -69,7 +69,7 @@ async function updatePriceByCity(city: string) {
   const prices = await fetchPricesByPage(pageUrl);
   // save to db
   db.set("prices", prices).write();
-  db.set("lastFetchAt", Date.now() / 1000).write();
+  db.set("lastFetchAt", Math.round(Date.now() / 1000)).write();
 }
 
 
@@ -81,7 +81,7 @@ export async function updatePricesEveryOneHour() {
   // const oneHour = 1000 * 60 * 60 * 1;
   const oneHour = ms('1h')
 
-  if (!prices || Date.now() - lastFetchAt > oneHour) {
+  if (!prices || Date.now()/1000 - lastFetchAt > oneHour) {
     console.log("Initialize - Fetch new prices !");
     updatePriceByCity("Halifax")
   }
@@ -89,7 +89,7 @@ export async function updatePricesEveryOneHour() {
   // fetch rate every 1 hours
   setInterval(async () => {
     updatePriceByCity("Halifax")
-    console.log("Fetched new rate at ", Date.now() / 1000);
+    console.log("Fetched new rate at ", Math.round(Date.now() / 1000));
   }, oneHour);
 }
 

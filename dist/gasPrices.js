@@ -14,16 +14,32 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const axios_1 = __importDefault(require("axios"));
 const cheerio_1 = __importDefault(require("cheerio"));
-const lodash_1 = __importDefault(require("lodash"));
-const lowdb_1 = __importDefault(require("lowdb"));
-const FileSync_1 = __importDefault(require("lowdb/adapters/FileSync"));
-const path_1 = __importDefault(require("path"));
-const adapter = new FileSync_1.default(path_1.default.join(__dirname, "../db.json"));
-exports.db = lowdb_1.default(adapter);
+const db_1 = require("./db");
+const ms_1 = __importDefault(require("ms"));
 // const gasBuddyUrlExample = "https://www.gasbuddy.com/assets-v2/api/stations/16905/fuels"
-const gasBuddyAPIBaseUrl = "https://www.gasbuddy.com/assets-v2/api/stations/";
-const gasBuddyHalifaxPageUrl = `https://www.gasbuddy.com/GasPrices/Nova%20Scotia/Halifax`;
-function fetchHalifaxPrices(pageUrl) {
+const gasBuddyAPIBaseUrl = "https://www.gasbuddy.com/assets-v2/api/stations";
+// const gasBuddyBasePageUrl = `https://www.gasbuddy.com/GasPrices/Nova%20Scotia/Halifax`;
+const gasBuddyBasePageUrl = `https://www.gasbuddy.com/GasPrices/Nova%20Scotia`;
+function getFuelPriceByStationId(station_id, station_brand, station_address) {
+    return __awaiter(this, void 0, void 0, function* () {
+        return new Promise((resolve, reject) => __awaiter(this, void 0, void 0, function* () {
+            try {
+                const response = yield axios_1.default.get(`${gasBuddyAPIBaseUrl}/${station_id}/fuels`);
+                resolve({
+                    station_brand,
+                    station_address,
+                    station_id: response.data.station_id,
+                    fuels: response.data.fuels,
+                });
+            }
+            catch (e) {
+                console.error("Failed fetch fuel prices by station_id - ", station_id);
+                reject(e.message);
+            }
+        }));
+    });
+}
+function fetchPricesByPage(pageUrl) {
     return __awaiter(this, void 0, void 0, function* () {
         try {
             const response = yield axios_1.default.get(pageUrl);
@@ -42,64 +58,39 @@ function fetchHalifaxPrices(pageUrl) {
                 pricesPromises.push(getFuelPriceByStationId(station_id, station_brand, station_address));
             }));
             const prices = yield Promise.all(pricesPromises);
-            // save to db
-            exports.db.set("prices", prices).write();
-            exports.db.set("lastFetchAt", Date.now()).write();
+            return prices;
         }
         catch (e) {
-            throw new Error("Error on fetching " + pageUrl);
+            throw new Error("Error on fetching - " + pageUrl);
         }
     });
 }
-function getFuelPriceByStationId(station_id, station_brand, station_address) {
+function updatePriceByCity(city) {
     return __awaiter(this, void 0, void 0, function* () {
-        return new Promise((resolve, reject) => __awaiter(this, void 0, void 0, function* () {
-            try {
-                const response = yield axios_1.default.get(`${gasBuddyAPIBaseUrl}/${station_id}/fuels`);
-                resolve(Object.assign({ station_brand, station_address }, response.data));
-            }
-            catch (e) {
-                console.error("Failed fetch station_id - ", station_id);
-                reject();
-            }
-        }));
+        const pageUrl = `${gasBuddyBasePageUrl}/${city}`;
+        const prices = yield fetchPricesByPage(pageUrl);
+        // save to db
+        db_1.db.set("prices", prices).write();
+        db_1.db.set("lastFetchAt", Math.round(Date.now() / 1000)).write();
     });
 }
-exports.getFuelPriceByStationId = getFuelPriceByStationId;
-function updateLatestPrices() {
+function updatePricesEveryOneHour() {
     return __awaiter(this, void 0, void 0, function* () {
-        const prices = exports.db.get("prices").value();
-        const lastFetchAt = exports.db.get("lastFetchAt").value();
+        const prices = db_1.db.get("prices").value();
+        const lastFetchAt = db_1.db.get("lastFetchAt").value();
         // set 1 hours as interval
-        const oneHour = 1000 * 60 * 60 * 1;
-        if (!prices || Date.now() - lastFetchAt > oneHour) {
-            console.log("Fetch new prices !");
-            yield fetchHalifaxPrices(gasBuddyHalifaxPageUrl);
+        // const oneHour = 1000 * 60 * 60 * 1;
+        const oneHour = ms_1.default('1h');
+        if (!prices || Date.now() / 1000 - lastFetchAt > oneHour) {
+            console.log("Initialize - Fetch new prices !");
+            updatePriceByCity("Halifax");
         }
-        // fetch rate every 4 hours
+        // fetch rate every 1 hours
         setInterval(() => __awaiter(this, void 0, void 0, function* () {
-            yield fetchHalifaxPrices(gasBuddyHalifaxPageUrl);
-            console.log("Fetched new rate at ", new Date().toString());
+            updatePriceByCity("Halifax");
+            console.log("Fetched new rate at ", Math.round(Date.now() / 1000));
         }), oneHour);
     });
 }
-exports.updateLatestPrices = updateLatestPrices;
-function getAll() {
-    try {
-        return exports.db.get("prices").value();
-    }
-    catch (e) {
-        console.log("Cannot get rate from DB");
-    }
-}
-exports.getAll = getAll;
-function getTopCheapest(top) {
-    const prices = exports.db.get("prices").value();
-    const sortedPrices = lodash_1.default.sortBy(prices, [(o) => o.fuels[0].prices[0].price]);
-    return lodash_1.default.take(sortedPrices, top);
-}
-exports.getTopCheapest = getTopCheapest;
-// (async () => {
-// await fetchHalifaxPrices(gasBuddyHalifaxPageUrl);
-// })();
+exports.updatePricesEveryOneHour = updatePricesEveryOneHour;
 //# sourceMappingURL=gasPrices.js.map
