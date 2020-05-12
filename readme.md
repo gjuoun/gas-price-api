@@ -26,3 +26,9 @@
       gas-price-api:1.0
 
 
+## Roadmap
+
+- [x] Get price ranking in Halifax
+- [x] Dockerfile
+- [ ] Have NoSQL database options
+- [ ] Get prices by given city name
