@@ -1,6 +1,6 @@
 ## Gas Price API
 
-> Provides gas price ranking by city. Data from [GasBuddy](https://www.gasbuddy.com/) and 
+> Provides gas price ranking by city. Data from [GasBuddy](https://www.gasbuddy.com/)
 
 [Github repo](https://github.com/gjuoun/gas-price-api)
 
