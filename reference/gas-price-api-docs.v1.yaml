@@ -11,7 +11,8 @@ paths:
   /all:
     get:
       summary: GET all stations
-      tags: []
+      tags:
+        - API Usage
       responses:
         '200':
           description: 200 OK
@@ -326,7 +327,8 @@ paths:
   /cheap:
     get:
       summary: GET gas price ranking
-      tags: []
+      tags:
+        - API Usage
       responses:
         '200':
           description: OK
