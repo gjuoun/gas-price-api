@@ -27,7 +27,7 @@ app.get("/cheap", async (req, res: express.Response, next) => {
   }
   else {
     res.status(400)
-    next(new Error("Missing query parameter - top:number "))
+    next(new Error("query parameter 'top' should be a number"))
   }
 });
 
