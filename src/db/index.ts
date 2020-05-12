@@ -2,6 +2,8 @@ import lowdb from "lowdb";
 import FileSync from "lowdb/adapters/FileSync";
 import path from "path";
 import fs from 'fs'
+import _ from "lodash";
+
 import { Station } from "../types";
 
 const dbPath = path.join(__dirname, "../../db.json")

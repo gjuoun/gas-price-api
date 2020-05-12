@@ -4,7 +4,7 @@ if (process.env.NODE_ENV !== "production") {
 }
 import express, { NextFunction } from "express";
 import {
-  updateLatestPrices,
+  updatePricesEveryOneHour,
 } from "./gasPrices";
 import _ from "lodash";
 import { getTopCheapest, getAll } from './db'
@@ -33,7 +33,6 @@ app.get("/cheap", async (req, res: express.Response, next) => {
 
 /* ----------------------------- Error handling ----------------------------- */
 function errorHandler(err: Error, req: express.Request, res: express.Response, next: NextFunction) {
-  console.log(`Do we have an error?`)
   if (err) {
     res.send(<ApiResponse>{
       success: false,
@@ -55,5 +54,5 @@ app.use(errorHandler)
 const port = process.env.PORT || 6002;
 app.listen(port, () => {
   console.log("GasPriceAPI running at ", port);
-  updateLatestPrices();
+  updatePricesEveryOneHour();
 });

@@ -1,15 +1,39 @@
 import axios from "axios";
 import cheerio from "cheerio";
-import _ from "lodash";
 import { db, getAll, getTopCheapest } from './db'
 import ms from 'ms'
-import { Station } from "types";
+import { Station } from "./types";
 
 // const gasBuddyUrlExample = "https://www.gasbuddy.com/assets-v2/api/stations/16905/fuels"
-const gasBuddyAPIBaseUrl = "https://www.gasbuddy.com/assets-v2/api/stations/";
-const gasBuddyHalifaxPageUrl = `https://www.gasbuddy.com/GasPrices/Nova%20Scotia/Halifax`;
+const gasBuddyAPIBaseUrl = "https://www.gasbuddy.com/assets-v2/api/stations";
 
-async function fetchHalifaxPrices(pageUrl: string) {
+// const gasBuddyBasePageUrl = `https://www.gasbuddy.com/GasPrices/Nova%20Scotia/Halifax`;
+const gasBuddyBasePageUrl = `https://www.gasbuddy.com/GasPrices/Nova%20Scotia`;
+
+async function getFuelPriceByStationId(
+  station_id: string,
+  station_brand: string,
+  station_address: string
+): Promise<Station> {
+  return new Promise<Station>(async (resolve, reject) => {
+    try {
+      const response = await axios.get(
+        `${gasBuddyAPIBaseUrl}/${station_id}/fuels`
+      );
+      resolve(<Station>{
+        station_brand,
+        station_address,
+        station_id: response.data.station_id,
+        fuels: response.data.fuels,
+      });
+    } catch (e) {
+      console.error("Failed fetch fuel prices by station_id - ", station_id);
+      reject(e.message);
+    }
+  });
+}
+
+async function fetchPricesByPage(pageUrl: string) {
   try {
     const response = await axios.get(pageUrl);
     const $ = cheerio.load(response.data);
@@ -17,7 +41,7 @@ async function fetchHalifaxPrices(pageUrl: string) {
     const priceTrs = $("tbody#prices-table > tr[data-target]");
     // console.log(priceTrs.html());
 
-    const pricesPromises: Promise<object>[] = [];
+    const pricesPromises: Promise<Station>[] = [];
     priceTrs.each(async (trIndex, trEl) => {
       const station_id: string = $(trEl).attr("data-target")!.match(/\d+$/)![0];
       const station_brand: string = $(trEl).find("strong>a").text();
@@ -33,34 +57,23 @@ async function fetchHalifaxPrices(pageUrl: string) {
     });
 
     const prices = await Promise.all(pricesPromises);
+    return prices
 
-    // save to db
-    db.set("prices", prices).write();
-    db.set("lastFetchAt", Date.now()).write();
   } catch (e) {
-    throw new Error("Error on fetching " + pageUrl);
+    throw new Error("Error on fetching - " + pageUrl);
   }
 }
 
-export async function getFuelPriceByStationId(
-  station_id: string,
-  station_brand: string,
-  station_address: string
-): Promise<object> {
-  return new Promise(async (resolve, reject) => {
-    try {
-      const response = await axios.get(
-        `${gasBuddyAPIBaseUrl}/${station_id}/fuels`
-      );
-      resolve({ station_brand, station_address, ...response.data });
-    } catch (e) {
-      console.error("Failed fetch station_id - ", station_id);
-      reject();
-    }
-  });
+async function updatePriceByCity(city: string) {
+  const pageUrl = `${gasBuddyBasePageUrl}/${city}`
+  const prices = await fetchPricesByPage(pageUrl);
+  // save to db
+  db.set("prices", prices).write();
+  db.set("lastFetchAt", Date.now() / 1000).write();
 }
 
-export async function updateLatestPrices() {
+
+export async function updatePricesEveryOneHour() {
   const prices = db.get("prices").value();
   const lastFetchAt = db.get("lastFetchAt").value();
 
@@ -69,13 +82,14 @@ export async function updateLatestPrices() {
   const oneHour = ms('1h')
 
   if (!prices || Date.now() - lastFetchAt > oneHour) {
-    console.log("Fetch new prices !");
-    await fetchHalifaxPrices(gasBuddyHalifaxPageUrl);
+    console.log("Initialize - Fetch new prices !");
+    updatePriceByCity("Halifax")
   }
-  // fetch rate every 4 hours
+
+  // fetch rate every 1 hours
   setInterval(async () => {
-    await fetchHalifaxPrices(gasBuddyHalifaxPageUrl);
-    console.log("Fetched new rate at ", new Date().toString());
+    updatePriceByCity("Halifax")
+    console.log("Fetched new rate at ", Date.now() / 1000);
   }, oneHour);
 }
 
