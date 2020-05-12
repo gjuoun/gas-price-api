@@ -438,7 +438,7 @@ paths:
                                 reportedBy: GodPY
                                 postedTime: '2020-05-11T18:32:02.903Z'
         '400':
-          description: 'Bad Request, top is not number'
+          description: "Bad Request, \n/cheap?top=abc\nError - top is not number"
           content:
             application/json:
               schema:
