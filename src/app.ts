@@ -2,51 +2,55 @@ import dotenv from "dotenv";
 if (process.env.NODE_ENV !== "production") {
   dotenv.config();
 }
-import express from "express";
+import express, { NextFunction } from "express";
 import {
-  getFuelPriceByStationId,
-  getAll,
   updateLatestPrices,
-  getTopCheapest ,
 } from "./gasPrices";
 import _ from "lodash";
+import { getTopCheapest, getAll } from './db'
+import { ApiResponse } from "types";
 
 const app = express();
 
-app.get("/station", async (req, res) => {
-  if (!req.query.station_id) {
-    return res.send({
-      success: false,
-      message: "no query parameter: station_id ",
-    });
-  }
-  res.send({
-    success: true,
-    data: await getFuelPriceByStationId(<string>req.query.station_id),
-  });
+
+app.get("/all", async (req, res, next) => {
+  res.data = getAll()
+  next()
 });
 
-app.get("/all", async (req, res) => {
-  res.send({
-    success: true,
-    data: getAll(),
-  });
-});
-
-app.get("/cheap", async (req, res) => {
-  if (!req.query.top) {
-    return res.send({
-      success: false,
-      message: "no query parameter: top ",
-    });
-  }
+app.get("/cheap", async (req, res: express.Response, next) => {
   const top = parseInt(<string>req.query.top);
 
-  res.send({
-    success: true,
-    data: getTopCheapest(top),
-  });
+  if (top) {
+    res.data = getTopCheapest(top)
+    next()
+  }
+  else {
+    res.status(400)
+    next(new Error("Missing query parameter - top:number "))
+  }
 });
+
+/* ----------------------------- Error handling ----------------------------- */
+function errorHandler(err: Error, req: express.Request, res: express.Response, next: NextFunction) {
+  console.log(`Do we have an error?`)
+  if (err) {
+    res.send(<ApiResponse>{
+      success: false,
+      message: err.message
+    })
+  }
+  // if no error, send data
+  else {
+    res.send(<ApiResponse>{
+      success: true,
+      data: res.data
+    })
+  }
+}
+
+app.use(errorHandler)
+
 
 const port = process.env.PORT || 6002;
 app.listen(port, () => {

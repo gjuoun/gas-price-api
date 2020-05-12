@@ -1,6 +1,8 @@
 {
   "prices": [
     {
+      "station_brand": "Wilsons",
+      "station_address": "30 Farnham Gate Rd & Dunbrack St",
       "station_id": 72164,
       "fuels": [
         {
@@ -10,9 +12,9 @@
           "prices": [
             {
               "isCash": true,
-              "price": 61.9,
+              "price": 71.8,
               "reportedBy": "Brucevanf",
-              "postedTime": "2020-04-26T11:05:35.236Z"
+              "postedTime": "2020-05-12T11:18:55.173Z"
             },
             {
               "isCash": false,
@@ -53,6 +55,8 @@
       ]
     },
     {
+      "station_brand": "Wilsons",
+      "station_address": "289 Herring Cove Rd & Bradford St",
       "station_id": 12198,
       "fuels": [
         {
@@ -62,9 +66,9 @@
           "prices": [
             {
               "isCash": true,
-              "price": 63.4,
+              "price": 73.3,
               "reportedBy": "Brucevanf",
-              "postedTime": "2020-04-26T11:05:35.080Z"
+              "postedTime": "2020-05-12T11:18:55.032Z"
             },
             {
               "isCash": false,
@@ -120,6 +124,109 @@
       ]
     },
     {
+      "station_brand": "Petro-Canada",
+      "station_address": "6389 Quinpool Rd & Oxford Street",
+      "station_id": 189618,
+      "fuels": [
+        {
+          "id": 1,
+          "fuelType": "Regular",
+          "stationId": 189618,
+          "prices": [
+            {
+              "isCash": false,
+              "price": 76.8,
+              "reportedBy": "Abhijithvikram",
+              "postedTime": "2020-05-12T17:24:46.981Z"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "fuelType": "Midgrade",
+          "stationId": 189618,
+          "prices": [
+            {
+              "isCash": false,
+              "price": 81.2,
+              "reportedBy": "GodPY",
+              "postedTime": "2020-05-11T18:32:02.887Z"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "fuelType": "Premium",
+          "stationId": 189618,
+          "prices": [
+            {
+              "isCash": false,
+              "price": 84.7,
+              "reportedBy": "GodPY",
+              "postedTime": "2020-05-11T18:32:02.903Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "station_brand": "Irving",
+      "station_address": "6515 Quinpool Rd & Elm St",
+      "station_id": 24141,
+      "fuels": [
+        {
+          "id": 1,
+          "fuelType": "Regular",
+          "stationId": 24141,
+          "prices": [
+            {
+              "isCash": false,
+              "price": 76.8,
+              "reportedBy": "KingKaung",
+              "postedTime": "2020-05-12T14:46:42.230Z"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "fuelType": "Midgrade",
+          "stationId": 24141,
+          "prices": [
+            {
+              "isCash": false,
+              "price": 81.2,
+              "reportedBy": "GodPY",
+              "postedTime": "2020-05-11T18:32:17.086Z"
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "fuelType": "Premium",
+          "stationId": 24141,
+          "prices": [
+            {
+              "isCash": false,
+              "price": 0
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "fuelType": "Diesel",
+          "stationId": 24141,
+          "prices": [
+            {
+              "isCash": false,
+              "price": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "station_brand": "Petro-Canada",
+      "station_address": "7015 Bayers Rd near Ralston Ave",
       "station_id": 8900,
       "fuels": [
         {
@@ -129,9 +236,9 @@
           "prices": [
             {
               "isCash": false,
-              "price": 66.9,
-              "reportedBy": "nkei",
-              "postedTime": "2020-04-26T10:50:20.795Z"
+              "price": 76.8,
+              "reportedBy": "KingKaung",
+              "postedTime": "2020-05-12T13:47:23.213Z"
             }
           ]
         },
@@ -171,25 +278,27 @@
       ]
     },
     {
-      "station_id": 144958,
+      "station_brand": "Canadian Tire",
+      "station_address": "6590 Bayers Rd & Connaught Ave",
+      "station_id": 189619,
       "fuels": [
         {
           "id": 1,
           "fuelType": "Regular",
-          "stationId": 144958,
+          "stationId": 189619,
           "prices": [
             {
               "isCash": false,
-              "price": 66.9,
-              "reportedBy": "nkei",
-              "postedTime": "2020-04-26T10:49:54.542Z"
+              "price": 76.8,
+              "reportedBy": "KingKaung",
+              "postedTime": "2020-05-12T13:46:05.470Z"
             }
           ]
         },
         {
           "id": 2,
           "fuelType": "Midgrade",
-          "stationId": 144958,
+          "stationId": 189619,
           "prices": [
             {
               "isCash": false,
@@ -200,7 +309,7 @@
         {
           "id": 3,
           "fuelType": "Premium",
-          "stationId": 144958,
+          "stationId": 189619,
           "prices": [
             {
               "isCash": false,
@@ -211,7 +320,7 @@
         {
           "id": 4,
           "fuelType": "Diesel",
-          "stationId": 144958,
+          "stationId": 189619,
           "prices": [
             {
               "isCash": false,
@@ -222,228 +331,8 @@
       ]
     },
     {
-      "station_id": 16907,
-      "fuels": [
-        {
-          "id": 1,
-          "fuelType": "Regular",
-          "stationId": 16907,
-          "prices": [
-            {
-              "isCash": false,
-              "price": 66.9,
-              "reportedBy": "nkei",
-              "postedTime": "2020-04-26T10:47:24.417Z"
-            }
-          ]
-        },
-        {
-          "id": 2,
-          "fuelType": "Midgrade",
-          "stationId": 16907,
-          "prices": [
-            {
-              "isCash": false,
-              "price": 0
-            }
-          ]
-        },
-        {
-          "id": 3,
-          "fuelType": "Premium",
-          "stationId": 16907,
-          "prices": [
-            {
-              "isCash": false,
-              "price": 0
-            }
-          ]
-        },
-        {
-          "id": 4,
-          "fuelType": "Diesel",
-          "stationId": 16907,
-          "prices": [
-            {
-              "isCash": false,
-              "price": 0
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "station_id": 23349,
-      "fuels": [
-        {
-          "id": 1,
-          "fuelType": "Regular",
-          "stationId": 23349,
-          "prices": [
-            {
-              "isCash": false,
-              "price": 66.9,
-              "reportedBy": "nkei",
-              "postedTime": "2020-04-26T10:47:23.499Z"
-            }
-          ]
-        },
-        {
-          "id": 2,
-          "fuelType": "Midgrade",
-          "stationId": 23349,
-          "prices": [
-            {
-              "isCash": false,
-              "price": 0
-            }
-          ]
-        },
-        {
-          "id": 3,
-          "fuelType": "Premium",
-          "stationId": 23349,
-          "prices": [
-            {
-              "isCash": false,
-              "price": 0
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "station_id": 1910,
-      "fuels": [
-        {
-          "id": 1,
-          "fuelType": "Regular",
-          "stationId": 1910,
-          "prices": [
-            {
-              "isCash": false,
-              "price": 66.9,
-              "reportedBy": "Brian Smith",
-              "postedTime": "2020-04-26T10:36:44.111Z"
-            }
-          ]
-        },
-        {
-          "id": 2,
-          "fuelType": "Midgrade",
-          "stationId": 1910,
-          "prices": [
-            {
-              "isCash": false,
-              "price": 0
-            }
-          ]
-        },
-        {
-          "id": 3,
-          "fuelType": "Premium",
-          "stationId": 1910,
-          "prices": [
-            {
-              "isCash": false,
-              "price": 0
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "station_id": 137986,
-      "fuels": [
-        {
-          "id": 1,
-          "fuelType": "Regular",
-          "stationId": 137986,
-          "prices": [
-            {
-              "isCash": false,
-              "price": 66.9,
-              "reportedBy": "Brian Smith",
-              "postedTime": "2020-04-26T10:36:43.846Z"
-            }
-          ]
-        },
-        {
-          "id": 2,
-          "fuelType": "Midgrade",
-          "stationId": 137986,
-          "prices": [
-            {
-              "isCash": false,
-              "price": 0
-            }
-          ]
-        },
-        {
-          "id": 3,
-          "fuelType": "Premium",
-          "stationId": 137986,
-          "prices": [
-            {
-              "isCash": false,
-              "price": 0
-            }
-          ]
-        }
-      ]
-    },
-    {
-      "station_id": 8292,
-      "fuels": [
-        {
-          "id": 1,
-          "fuelType": "Regular",
-          "stationId": 8292,
-          "prices": [
-            {
-              "isCash": false,
-              "price": 66.9,
-              "reportedBy": "Brian Smith",
-              "postedTime": "2020-04-26T10:36:43.564Z"
-            }
-          ]
-        },
-        {
-          "id": 2,
-          "fuelType": "Midgrade",
-          "stationId": 8292,
-          "prices": [
-            {
-              "isCash": false,
-              "price": 0
-            }
-          ]
-        },
-        {
-          "id": 3,
-          "fuelType": "Premium",
-          "stationId": 8292,
-          "prices": [
-            {
-              "isCash": false,
-              "price": 0
-            }
-          ]
-        },
-        {
-          "id": 4,
-          "fuelType": "Diesel",
-          "stationId": 8292,
-          "prices": [
-            {
-              "isCash": false,
-              "price": 0
-            }
-          ]
-        }
-      ]
-    },
-    {
+      "station_brand": "Esso",
+      "station_address": "6020 Young St & Robie St",
       "station_id": 1704,
       "fuels": [
         {
@@ -453,9 +342,9 @@
           "prices": [
             {
               "isCash": false,
-              "price": 66.9,
-              "reportedBy": "Brian Smith",
-              "postedTime": "2020-04-26T10:36:43.330Z"
+              "price": 76.8,
+              "reportedBy": "KingKaung",
+              "postedTime": "2020-05-12T13:42:37.780Z"
             }
           ]
         },
@@ -466,7 +355,9 @@
           "prices": [
             {
               "isCash": false,
-              "price": 0
+              "price": 81.2,
+              "reportedBy": "GodPY",
+              "postedTime": "2020-05-11T18:32:29.820Z"
             }
           ]
         },
@@ -485,6 +376,143 @@
           "id": 4,
           "fuelType": "Diesel",
           "stationId": 1704,
+          "prices": [
+            {
+              "isCash": false,
+              "price": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "station_brand": "Ultramar",
+      "station_address": "2816 Gottingen St   & Almon St",
+      "station_id": 12197,
+      "fuels": [
+        {
+          "id": 1,
+          "fuelType": "Regular",
+          "stationId": 12197,
+          "prices": [
+            {
+              "isCash": false,
+              "price": 76.8,
+              "reportedBy": "KingKaung",
+              "postedTime": "2020-05-12T13:40:59.902Z"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "fuelType": "Midgrade",
+          "stationId": 12197,
+          "prices": [
+            {
+              "isCash": false,
+              "price": 0
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "fuelType": "Premium",
+          "stationId": 12197,
+          "prices": [
+            {
+              "isCash": false,
+              "price": 0
+            }
+          ]
+        },
+        {
+          "id": 4,
+          "fuelType": "Diesel",
+          "stationId": 12197,
+          "prices": [
+            {
+              "isCash": false,
+              "price": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "station_brand": "Shell",
+      "station_address": "2616 Robie St & North St",
+      "station_id": 12192,
+      "fuels": [
+        {
+          "id": 1,
+          "fuelType": "Regular",
+          "stationId": 12192,
+          "prices": [
+            {
+              "isCash": false,
+              "price": 76.8,
+              "reportedBy": "KingKaung",
+              "postedTime": "2020-05-12T13:34:28.837Z"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "fuelType": "Midgrade",
+          "stationId": 12192,
+          "prices": [
+            {
+              "isCash": false,
+              "price": 0
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "fuelType": "Premium",
+          "stationId": 12192,
+          "prices": [
+            {
+              "isCash": false,
+              "price": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "station_brand": "Esso",
+      "station_address": "7151 Chebucto Rd & Clinton Ave",
+      "station_id": 1910,
+      "fuels": [
+        {
+          "id": 1,
+          "fuelType": "Regular",
+          "stationId": 1910,
+          "prices": [
+            {
+              "isCash": false,
+              "price": 76.8,
+              "reportedBy": "KingKaung",
+              "postedTime": "2020-05-12T13:30:58.211Z"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "fuelType": "Midgrade",
+          "stationId": 1910,
+          "prices": [
+            {
+              "isCash": false,
+              "price": 0
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "fuelType": "Premium",
+          "stationId": 1910,
           "prices": [
             {
               "isCash": false,
@@ -495,5 +523,5 @@
       ]
     }
   ],
-  "lastFetchAt": 1587927634040
+  "lastFetchAt": 1589307795499
 }

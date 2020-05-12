@@ -33,7 +33,13 @@ function fetchHalifaxPrices(pageUrl) {
             const pricesPromises = [];
             priceTrs.each((trIndex, trEl) => __awaiter(this, void 0, void 0, function* () {
                 const station_id = $(trEl).attr("data-target").match(/\d+$/)[0];
-                pricesPromises.push(getFuelPriceByStationId(station_id));
+                const station_brand = $(trEl).find("strong>a").text();
+                const station_address = $(trEl)
+                    .find("strong")
+                    .parent()
+                    .next()
+                    .text();
+                pricesPromises.push(getFuelPriceByStationId(station_id, station_brand, station_address));
             }));
             const prices = yield Promise.all(pricesPromises);
             // save to db
@@ -45,12 +51,12 @@ function fetchHalifaxPrices(pageUrl) {
         }
     });
 }
-function getFuelPriceByStationId(station_id) {
+function getFuelPriceByStationId(station_id, station_brand, station_address) {
     return __awaiter(this, void 0, void 0, function* () {
         return new Promise((resolve, reject) => __awaiter(this, void 0, void 0, function* () {
             try {
                 const response = yield axios_1.default.get(`${gasBuddyAPIBaseUrl}/${station_id}/fuels`);
-                resolve(response.data);
+                resolve(Object.assign({ station_brand, station_address }, response.data));
             }
             catch (e) {
                 console.error("Failed fetch station_id - ", station_id);
@@ -93,4 +99,7 @@ function getTopCheapest(top) {
     return lodash_1.default.take(sortedPrices, top);
 }
 exports.getTopCheapest = getTopCheapest;
+// (async () => {
+// await fetchHalifaxPrices(gasBuddyHalifaxPageUrl);
+// })();
 //# sourceMappingURL=gasPrices.js.map
