@@ -18,41 +18,47 @@ if (process.env.NODE_ENV !== "production") {
 }
 const express_1 = __importDefault(require("express"));
 const gasPrices_1 = require("./gasPrices");
+const db_1 = require("./db");
 const app = express_1.default();
-app.get("/station", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    if (!req.query.station_id) {
-        return res.send({
-            success: false,
-            message: "no query parameter: station_id ",
-        });
-    }
-    res.send({
-        success: true,
-        data: yield gasPrices_1.getFuelPriceByStationId(req.query.station_id),
-    });
+app.get("/all", (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
+    console.log(req.ip);
+    res.data = db_1.getAll();
+    console.log(res.data);
+    console.log('???');
+    next("router");
 }));
-app.get("/all", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    res.send({
-        success: true,
-        data: gasPrices_1.getAll(),
-    });
-}));
-app.get("/cheap", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    if (!req.query.top) {
-        return res.send({
-            success: false,
-            message: "no query parameter: top ",
-        });
-    }
+app.get("/cheap", (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
     const top = parseInt(req.query.top);
-    res.send({
-        success: true,
-        data: gasPrices_1.getTopCheapest(top),
-    });
+    if (top) {
+        res.data = db_1.getTopCheapest(top);
+        next();
+    }
+    else {
+        res.status(400);
+        next(new Error("Missing query parameter - top:number "));
+    }
 }));
+/* ----------------------------- Error handling ----------------------------- */
+function errorHandler(err, req, res, next) {
+    console.log('error handler?');
+    if (err) {
+        res.send({
+            success: false,
+            message: err.message
+        });
+    }
+    // if no error, send data
+    else {
+        res.send({
+            success: true,
+            data: res.data
+        });
+    }
+}
+app.use(errorHandler);
 const port = process.env.PORT || 6002;
 app.listen(port, () => {
     console.log("GasPriceAPI running at ", port);
-    gasPrices_1.updateLatestPrices();
+    gasPrices_1.updatePricesEveryOneHour();
 });
 //# sourceMappingURL=app.js.map

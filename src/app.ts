@@ -32,23 +32,28 @@ app.get("/cheap", async (req, res: express.Response, next) => {
 });
 
 /* ----------------------------- Error handling ----------------------------- */
-function errorHandler(err: Error, req: express.Request, res: express.Response, next: NextFunction) {
-  if (err) {
-    res.send(<ApiResponse>{
-      success: false,
-      message: err.message
-    })
-  }
-  // if no error, send data
-  else {
+app.use(function (err: Error, req: express.Request, res: express.Response, next: NextFunction) {
+  res.send(<ApiResponse>{
+    success: false,
+    message: err.message
+  })
+})
+
+/* ----------------------------- Success Handler ---------------------------- */
+// send formatted data or endpoint information
+app.use('*', (req, res, next) => {
+  if (res.data) {
     res.send(<ApiResponse>{
       success: true,
       data: res.data
     })
+  } else {
+    res.send(<ApiResponse>{
+      success: true,
+      message: 'endpoint: /all /cheap'
+    })
   }
-}
-
-app.use(errorHandler)
+})
 
 
 const port = process.env.PORT || 6002;

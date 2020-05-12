@@ -10,7 +10,7 @@
       "name": "Launch Program",
       "skipFiles": ["<node_internals>/**"],
       "preLaunchTask": "npm: build",
-      "program": "${workspaceFolder}/src/gasPrices.ts",
+      "program": "${workspaceFolder}/src/app.ts",
       "outFiles": ["${workspaceFolder}/**/*.js"]
     }
   ]
