@@ -12,8 +12,7 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {},
-  "dependencies": {
+  "devDependencies": {
     "@types/axios": "^0.14.0",
     "@types/cheerio": "^0.22.18",
     "@types/cors": "^2.8.6",
@@ -23,7 +22,9 @@
     "@types/lowdb": "^1.0.9",
     "@types/moment": "^2.13.0",
     "@types/mongoose": "^5.7.18",
-    "@types/ms": "^0.7.31",
+    "@types/ms": "^0.7.31"
+  },
+  "dependencies": {
     "axios": "^0.19.2",
     "cheerio": "^1.0.0-rc.3",
     "cors": "^2.8.5",
@@ -33,6 +34,7 @@
     "lowdb": "^1.0.0",
     "moment": "^2.24.0",
     "mongoose": "^5.9.13",
-    "ms": "^2.1.2"
+    "ms": "^2.1.2",
+    "typescript": "^3.9.3"
   }
 }
