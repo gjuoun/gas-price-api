@@ -3,9 +3,7 @@ if (process.env.NODE_ENV !== "production") {
   dotenv.config();
 }
 import express, { NextFunction } from "express";
-import {
-  updatePricesEveryOneHour,
-} from "./gasPrices";
+import {updatePricesEveryOneHour} from "./gasPrices";
 import _ from "lodash";
 import { getTopCheapest, getAll } from './db'
 import { ApiResponse } from "types";
@@ -41,7 +39,7 @@ app.use(function (err: Error, req: express.Request, res: express.Response, next:
 
 /* ----------------------------- Success Handler ---------------------------- */
 // send formatted data or endpoint information
-app.use('*', (req, res, next) => {
+app.use((req, res, next) => {
   if (res.data) {
     res.send(<ApiResponse>{
       success: true,
