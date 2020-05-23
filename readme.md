@@ -2,6 +2,8 @@
 
 > Provides gas price ranking by city. Data from [GasBuddy](https://www.gasbuddy.com/) 
 
+![Node.js CI](https://github.com/gjuoun/gas-price-api/workflows/Node.js%20CI/badge.svg)
+
 [Github repo](https://github.com/gjuoun/gas-price-api)
 
 [API documentation](https://stoplight.io/p/docs/gh/gjuoun/gas-price-api)
